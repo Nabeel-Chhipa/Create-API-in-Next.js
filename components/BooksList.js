@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BookItem from './BookItem'
+import classes from '../src/styles/Books.module.css'
 
 const BooksList = () => {
 
@@ -10,21 +11,20 @@ const BooksList = () => {
         .then((data) => setData(data.message))
         .catch((e) => console.log(e))
     }
-    console.log(data)
     useEffect(() => {
         sendRequest()
     }, [])
 
   return (
     <div>
-        <ul>
+        <ul className={classes.boxWrapper}>
             {data && data.map((item, index) => 
                 <BookItem
                     key={index}
                     name={item.name}
                     description={item.description}
                     imgUrl={item.imgUrl}
-                    test='testing'
+                    styleclasses={classes.boxWrapper__item}
                 />
             )}
         </ul>
