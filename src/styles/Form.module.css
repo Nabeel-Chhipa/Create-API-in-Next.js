@@ -1,0 +1,23 @@
+.mainWrapper {
+
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.formWrapper div {
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.formWrapper label {
+    margin: 0px 0px 5px 0px;
+}
