@@ -4,5 +4,17 @@
         "name": "Mindset",
         "description": "A new book",
         "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1436227012i/40745.jpg"
+    },
+    {
+        "name": "Atomic Habit",
+        "description": "Book by James Clear",
+        "imgUrl": "http://cdn.shopify.com/s/files/1/0547/5424/6843/products/atomic-habits-james-clear.jpg?v=1616314516",
+        "id": 1676226005420
+    },
+    {
+        "name": "Atomic Habit 2",
+        "description": "Book by James Clear 2",
+        "imgUrl": "http://cdn.shopify.com/s/files/1/0547/5424/6843/products/atomic-habits-james-clear.jpg?v=1616314516",
+        "id": 1676226040561
     }
 ]

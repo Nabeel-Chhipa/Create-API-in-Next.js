@@ -13,11 +13,36 @@ const AddBook = () => {
             [e.target.name]: e.target.value
         }) )
     }
+    const sendRequest = () => {
+        fetch('/api/books/', {
+            method: 'POST',
+            body: JSON.stringify({
+                name: inputs.name,
+                description: inputs.description,
+                imgUrl: inputs.imgurl
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(inputs)
+        if(!inputs.name && !inputs.description && !inputs.imgurl) {
+            return;
+        }
+        else {
+            sendRequest()
+        }
+    }
 
   return (
     <>
     <div className={classes.mainWrapper}>
-        <form className={classes.formWrapper}>
+        <form onSubmit={handleSubmit} className={classes.formWrapper}>
             <div>
             <label htmlFor='name'>Name</label>
             <input type='text' name='name' value={inputs.name} onChange={handleChange} />

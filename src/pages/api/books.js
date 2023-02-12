@@ -17,13 +17,15 @@ function handler(req, res) {
     else if(req.method === 'POST') {
         const {name, description, imgUrl} = req.body
         const newBook = {
-            id: Date.now(),
             name,
             description,
-            imgUrl
+            imgUrl,
+            id: Date.now()
         }
         const data = getData()
         data.push(newBook)
+        const filePath = path.join(process.cwd(), 'data', 'books.json')
+        fs.writeFileSync(filePath, JSON.stringify(data))
         return res.status(201).json({ message: 'New book added.', book: newBook });
     }
 }
