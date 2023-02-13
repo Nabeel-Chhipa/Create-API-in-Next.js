@@ -16,7 +16,12 @@ async function handler(req, res) {
 
     if(req.method === 'GET') {
         // const data = getData()
-        const books = await db.collection('books').find().sort().toArray()
+        let books;
+        try {
+            books = await db.collection('books').find().sort().toArray()
+        } catch (error) {
+            return console.log(error);
+        }
         if(!books) {
             return res.status(500).json({message: 'Internal Server Error'})
         }
@@ -24,13 +29,21 @@ async function handler(req, res) {
     }
     else if(req.method === 'POST') {
         const {name, description, imgUrl} = req.body
+        if(!name && name.trim()==='' && !description && description.trim()==='' && !imgUrl && imgUrl.trim()==='') {
+            return res.status(422).json({message: 'Invalid Data'})
+        }
         const newBook = {
             name,
             description,
             imgUrl,
             // id: Date.now()
         }
-        const generatedBook = await db.collection('books').insertOne(newBook)
+        let generatedBook
+        try {
+            generatedBook = await db.collection('books').insertOne(newBook)
+        } catch (error) {
+            return console.log(error);
+        }
         // const data = getData()
         // data.push(newBook)
         // const filePath = path.join(process.cwd(), 'data', 'books.json')

@@ -31,12 +31,13 @@ const AddBook = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(inputs)
-        if(!inputs.name && !inputs.description && !inputs.imgurl) {
-            return;
-        }
-        else {
-            sendRequest()
-        }
+        // if(!inputs.name && !inputs.description && !inputs.imgurl) {
+        //     return;
+        // }
+        // else {
+        //     sendRequest()
+        // }
+        sendRequest()
     }
 
   return (
